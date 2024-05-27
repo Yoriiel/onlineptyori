@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class=" contenido-principalhome" id="buscar">
+    <div class="titulo no-padding no-margin">
+    <h4 class="no-padding no-margin" id="buscar">Resultado de {{categorias.name}} : </h4>
+</div>
+
+    <div  class="buscador">
+
+                 <div id="miElemento"  class="contenedor ordenamiento" >
+
+                    {% for service in categorias.get_service.all %}
+                        {% for ubi in service.ubicacion.all %}
+                           {% for cate in service.categoria.all %}
+                                <section class="entradas etiquetas contenedor-etiqueta">
+                                    <a href="{% url 'producto' service.id %}">
+                                        <div class="entrada__imagen">
+                                            <img src="{{service.image.url}}"  alt="imagen 1">
+
+                                        </div>
+
+                                        <div class="entrada__contenido">
+                                            <h5 class="no-margin no-padding">{{service.title}}</h5>
+                                        </div>
+                                        <span class="espam">
+                                            <span class="no-margin cuadros">{{ cate.name }}</span>
+                                            <span class="no-margin cuadros">{{ ubi.name_provincia }}</span>
+                                            {% if service.distrito %}
+                                                <br>
+                                                <span class="no-margin cuadros">{{ service.distrito }}</span>
+                                                {% endif %}
+                                        </span>
+                                    </a>
+                                </section>
+                                {% endfor %}
+                            {% endfor %}
+                        {% endfor %}
+
+                </div>
+
+        </div>
+</div>
+
+{% endblock %}

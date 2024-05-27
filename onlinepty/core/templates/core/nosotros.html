@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main class="contenedor">
+  
+  <div class="sobre-nosotros" id="buscar">
+
+    <div class="sobre-nosotrosimagen">
+      <img src="{% static 'core/img/onlineback.png' %}" alt="">
+    </div>
+
+    <div class="sobre-nosotrostexto">
+      <h1 style="text-align: left; font-size: 28px;">Sobre Nosotros</h1>
+      <p style="font-size: 18px; text-align: justify;">OnlinePTY es una empresa líder en el ámbito de la publicidad digital, dedicada a impulsar negocios hacia el éxito en el entorno en línea. Con una perspectiva innovadora y un enfoque centrado en las necesidades específicas de cada cliente, OnlinePTY ofrece soluciones publicitarias integrales que maximizan la visibilidad y el rendimiento de las marcas en el mercado digital.</p>
+    </div>
+  </div>
+
+</main>
+
+{% endblock %}

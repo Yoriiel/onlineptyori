@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Crear página{% endblock %}
+{% block content %}
+
+<main role="main">
+
+{% include 'core/estilo.html' %}
+  <div class="container">
+    <div class="row mt-3 mb-5">
+      <div class="col-md-9 mx-auto">
+        <div>
+            <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+                    {{ form.as_p }}
+
+                <div class="text-center">
+                  <input class="btn btn-primary btn-block" type="submit" value="Crear página" />
+                </div>
+
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

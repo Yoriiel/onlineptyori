@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+
+    {% block content %}
+
+        <h3 class="centrar-texto" id="buscar">Nuestras Tarifas</h3>
+        <main  class="contenedor tarifas" >
+
+            {% for tarifa in tarifas %}
+                <div class="tarifa">
+                    <div class="titulo">
+                        <h3 class="no-padding no-margin">{{tarifa.name}}</h3>
+                    </div>
+                    <p>incluye</p>
+                    <p>{{tarifa.content|safe}}</p>
+
+                </div>
+
+
+            {% endfor %}
+        </main>
+
+    {% endblock %}

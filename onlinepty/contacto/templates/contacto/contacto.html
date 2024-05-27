@@ -1,0 +1,46 @@
+  {% extends 'core/base.html' %}
+    {% load static %}
+
+    {% block content %}
+        <main class="contenedor" id="buscar">
+        <h3 class="centrar-texto">Contáctanos</h3>
+
+
+        </div>
+
+        <div class="">
+            {% if 'ok' in request.GET %}
+        <p><b>Su mensaje se ha enviado exitosamente</b></p>
+        {% endif %}
+        <form action="" class="formulario" method="post">
+            {% csrf_token %}
+            <div class="campo">
+                <label for="name" class="form-label" >Nombre</label>
+                {{formulario.name}}
+            </div>
+            {{formulario.name.erros}}
+
+            <div class="campo">
+                <label for="email" class="form-label">Email</label>
+                {{formulario.email}}
+            </div>
+            {{formulario.email.erros}}
+            <div class="campo">
+                <label for="message" class="form-label">Mensaje</label>
+                {{formulario.content}}
+            </div>
+            {{formulario.content.erros}}
+            <div class="campo">
+                <input class="btn btn-primary" type="submit" name="enviar" value="Enviar" class="boton boton__primario">
+            </div>
+
+        </form>
+        </div>
+
+
+        </main>
+        <script src="{% static 'core/js/app.js' %}"></script>
+{% endblock %}
+
+
+

@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="titulo no-padding no-margin">
+    <h4 class="no-padding no-margin" id="buscar">Resultado de {{busqueda}} en {{provi}}: </h4>
+</div>
+<div class="contenido-principalhome"   >
+    <div  class="buscador">
+        <div id="miElemento"  class="contenedor ordenamiento" >
+        {% for service in services %}
+            {% for category in service.categoria.all %}
+                {% for ubi in service.ubicacion.all %}
+
+
+
+                    <section class="entradas etiquetas contenedor-etiqueta">
+                        <a class="" href="{% url 'producto' service.id %}">
+                            <div class="entrada__imagen">
+                                <img src="{{service.image.url}}"  alt="imagen 1">
+
+                            </div>
+
+                            <div class="entrada__contenido">
+                                <h5 class="no-margin no-padding">{{service.title}}</h5>
+                                <span>
+                                    <span class="no-margin cuadros">{{ category.name }}</span>
+
+                                    <span class="no-margin cuadros">{{ ubi.name_provincia }}</span>
+                                </span>
+                            </div>
+                        </a>
+                    </section>
+
+
+                    {% endfor %}
+                {% endfor %}
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
